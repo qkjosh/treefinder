@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_045356) do
+ActiveRecord::Schema.define(version: 2020_10_15_052102) do
 
   create_table "families", force: :cascade do |t|
     t.string "name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_045356) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "family_id"
     t.integer "genus_id"
+    t.string "image_url"
     t.index ["family_id"], name: "index_plants_on_family_id"
     t.index ["genus_id"], name: "index_plants_on_genus_id"
   end
