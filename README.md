@@ -1,24 +1,11 @@
-# README
+# TreeFinder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TreeFinder is a simple web app that matches the Winnipeg Tree Inventory database to the Winnipeg Parks and Open Space database.
 
-Things you may want to cover:
+Every tree in a given park is plotted on a map, then additional information about the tree species is gathered from Trefle.io.
 
-* Ruby version
+# APIs
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* [Winnipeg Parks and Open Space](https://data.winnipeg.ca/Parks/Parks-and-Open-Space/tx3d-pfxq)
+* [Winnipeg Tree Inventory](https://data.winnipeg.ca/Parks/Tree-Inventory/hfwk-jp4h)
+* [Global Plants API Trefle.io](https://trefle.io/)
