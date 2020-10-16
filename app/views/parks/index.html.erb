@@ -1,2 +1,13 @@
-<h1>Parks#index</h1>
-<p>Find me in app/views/parks/show.html.erb</p>
+<section class="section">
+  <div class="container">
+    <p class="title">Winnipeg Parks & Trees</p>
+    <p class="subtitle">A catalogue of Winnipeg's tree inventory</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-centered">
+      <%= render partial: 'parks/park', collection: @parks, locals: { name_is_link: true } %>
+    </div>
+  </div>
+</section>

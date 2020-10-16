@@ -1,12 +1,22 @@
 <div class="column is-one-quarter">
   <div class="card">
-    <header class="card-header">
-      <p class="card-header-title">
-        <%= link_to park.name, park, class:"has-text-success" %>
-      </p>
-    </header>
     <div class="card-content">
-      <p>This park has x species of tree.</p>
+        <%= link_to park.name, park, class:"has-text-success has-text-weight-bold" %>
+    </div>
+    <div class="species-container pt-0">
+      <ul class="species-list px-5 py-2">
+      <% if species(park.id).length > 0 %>
+        <% species(park.id).each do |s| %>
+          <li><%= s.plant.common_name %></li>
+        <% end %>
+      <% else %>
+        <li>No Species Found :(</li>
+      <% end %>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <div class="card-footer-item"></b><%= species_count(park.id) %> Species</div>
+      <div class="card-footer-item"><%= tree_count(park.id) %> Trees</div>
     </div>
   </div>
 </div>
