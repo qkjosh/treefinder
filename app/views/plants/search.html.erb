@@ -9,7 +9,7 @@
     <div class="columns is-multiline is-centered">
       <div class="column">
         <ul>
-        <% if not @plants.nil? %>
+        <% if @plants.length > 0 %>
           <% @plants.each do |plant| %>
             <li><%= link_to "#{plant.common_name} / #{plant.scientific_name}", plant, class:"has-text-success" %></li>
           <% end %>
