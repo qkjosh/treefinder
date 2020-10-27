@@ -4,6 +4,20 @@
     <div id="map" class="card"></div>
   </div>
 </section>
+<section class="section">
+  <div class="container">
+    <p class="title">Species in this park:</p>
+    <ul>
+      <% if species(@park.id).length > 0 %>
+        <% species(@park.id).each do |s| %>
+          <li><%= link_to s.plant.common_name, s.plant, class:"has-text-success" %></li>
+        <% end %>
+      <% else %>
+        <li>No Species Found :(</li>
+      <% end %>
+    </ul>
+  </div>
+</section>
 <script>
 (function() {
   const origin = {
@@ -17,8 +31,8 @@
         latitude: <%= parkplant.latitude %>,
         longitude: <%= parkplant.longitude %>,
         diameter: <%= parkplant.diameter %>,
-        family_link: '<%= link_to parkplant.plant.family.name, parkplant.plant.family, class:"has-text-success" %>',
-        genus_link: '<%= link_to parkplant.plant.genus.name, parkplant.plant.genus, class:"has-text-success" %>',
+        family_link: '<% if not parkplant.plant.family.nil? %><%= link_to parkplant.plant.family.name, parkplant.plant.family, class:"has-text-success" %><% end %>',
+        genus_link: '<% if not parkplant.plant.genus.nil? %><%= link_to parkplant.plant.genus.name, parkplant.plant.genus, class:"has-text-success" %><% end %>',
         species_link: '<%= link_to parkplant.plant.scientific_name, parkplant.plant, class:"has-text-success" %>',
       },
     <% end %>
