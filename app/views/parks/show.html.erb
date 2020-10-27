@@ -1,6 +1,7 @@
 <section class="section">
   <div class="container">
     <p class="title"><%= @park.name %></p>
+    <p class="subtitle">There are <%= species_count(@park.id) %> species and <%= tree_count(@park.id) %> trees in this park.</p>
     <div id="map" class="card"></div>
   </div>
 </section>
