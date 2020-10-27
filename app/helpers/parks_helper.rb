@@ -8,6 +8,6 @@ module ParksHelper
   end
 
   def species(park_id)
-    ParkPlant.where(park_id: park_id).group(:plant_id)
+    ParkPlant.includes(:plant).where(park_id: park_id).group(:plant_id).order('plants.common_name')
   end
 end

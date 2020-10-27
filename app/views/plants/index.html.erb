@@ -1,0 +1,18 @@
+<section class="section">
+  <div class="container">
+    <p class="title">All Tree Species</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-centered">
+      <div class="column">
+        <ul>
+        <% @plants.each do |plant| %>
+          <li><%= link_to plant.common_name, plant, class:"has-text-success has-text-weight-bold" %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

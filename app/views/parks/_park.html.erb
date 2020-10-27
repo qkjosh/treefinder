@@ -7,7 +7,7 @@
       <ul class="species-list px-5 py-2">
       <% if species(park.id).length > 0 %>
         <% species(park.id).each do |s| %>
-          <li><%= s.plant.common_name %></li>
+          <li><%= link_to s.plant.common_name, s.plant, class:"has-text-success" %></li>
         <% end %>
       <% else %>
         <li>No Species Found :(</li>

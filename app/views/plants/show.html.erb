@@ -1,0 +1,10 @@
+<section class="section">
+  <div class="container">
+    <p class="title"><%= @plant.common_name %></p>
+    <p class="subtitle"><%= @plant.scientific_name %></p>
+    <p><b>Family: </b><%= @plant.family.name %></p>
+    <p><b>Genus: </b><%= @plant.genus.name %></p>
+    <hr>
+    <img src="<%= @plant.image_url %>">
+  </div>
+</section>
