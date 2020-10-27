@@ -1,6 +1,6 @@
 class GeneraController < ApplicationController
   def index
-    @genera = Genus.order(:name).order(:name)
+    @genera = Genus.order(:name)
   end
 
   def show

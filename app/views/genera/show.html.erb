@@ -1,8 +1,11 @@
 <section class="section">
   <div class="container">
     <p class="title"><%= @genus.name %></p>
-    <p class="subtitle">Family: <%= @genus.family.name %></p>
     <hr>
+    <p class="subtitle">Family</p>
+    <p><%= link_to @genus.family.name, @genus.family, class:"has-text-success" %></p>
+    <hr>
+    <p class="subtitle">Species</p>
     <ul>
       <% @genus.plants.order(:common_name).each do |plant| %>
         <li><%= link_to plant.common_name, plant, class:"has-text-success" %></li>

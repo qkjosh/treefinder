@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.order(:name).order(:common_name)
+    @plants = Plant.order(:common_name)
   end
 
   def show

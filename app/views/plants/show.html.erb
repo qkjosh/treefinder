@@ -2,8 +2,12 @@
   <div class="container">
     <p class="title"><%= @plant.common_name %></p>
     <p class="subtitle"><%= @plant.scientific_name %></p>
-    <p><b>Family: </b><%= @plant.family.name %></p>
+    <% if not @plant.family.nil? %>
+    <p><b>Family: </b><%= link_to @plant.family.name, @plant.family, class:"has-text-success" %></p>
+    <% end %>
+    <% if not @plant.genus.nil? %>
     <p><b>Genus: </b><%= link_to @plant.genus.name, @plant.genus, class:"has-text-success" %></p>
+    <% end %>
     <hr>
     <img src="<%= @plant.image_url %>">
   </div>

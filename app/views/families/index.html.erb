@@ -1,6 +1,6 @@
 <section class="section">
   <div class="container">
-    <p class="title">All Plants</p>
+    <p class="title">All Families</p>
   </div>
 </section>
 <section class="section">
@@ -8,8 +8,8 @@
     <div class="columns is-multiline is-centered">
       <div class="column">
         <ul>
-        <% @plants.each do |plant| %>
-          <li><%= link_to plant.common_name, plant, class:"has-text-success" %></li>
+        <% @families.each do |family| %>
+          <li><%= link_to family.name, family, class:"has-text-success" %></li>
         <% end %>
         </ul>
       </div>

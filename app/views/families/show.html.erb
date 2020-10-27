@@ -1,0 +1,19 @@
+<section class="section">
+  <div class="container">
+    <p class="title"><%= @family.name %></p>
+    <hr>
+    <p class="subtitle">Genera</p>
+    <ul>
+      <% @family.genera.order(:name).each do |genus| %>
+        <li><%= link_to genus.name, genus, class:"has-text-success" %></li>
+      <% end %>
+    </ul>
+    <hr>
+    <p class="subtitle">Species</p>
+    <ul>
+      <% @family.plants.order(:common_name).each do |plant| %>
+        <li><%= link_to plant.common_name, plant, class:"has-text-success" %></li>
+      <% end %>
+    </ul>
+  </div>
+</section>
