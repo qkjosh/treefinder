@@ -1,13 +1,46 @@
 <section class="section">
   <div class="container">
     <p class="title"><%= @park.name %></p>
-    <div id="map"></div>
+    <div id="map" class="card"></div>
   </div>
 </section>
 <script>
-  var map = L.map('map').setView([<%= @park.latitude %>, <%= @park.longitude %>], 17);
+(function() {
+  const origin = {
+    latitude: <%= @park.latitude %>,
+    longitude: <%= @park.longitude %>,
+  }
+  const trees = [
+    <% @plants.each do |parkplant| %>
+      {
+        common_name: '<%= parkplant.plant.common_name %>',
+        latitude: <%= parkplant.latitude %>,
+        longitude: <%= parkplant.longitude %>,
+        diameter: <%= parkplant.diameter %>,
+        family_link: '<%= link_to parkplant.plant.family.name, parkplant.plant.family, class:"has-text-success" %>',
+        genus_link: '<%= link_to parkplant.plant.genus.name, parkplant.plant.genus, class:"has-text-success" %>',
+        species_link: '<%= link_to parkplant.plant.scientific_name, parkplant.plant, class:"has-text-success" %>',
+      },
+    <% end %>
+  ];
+
+  // Initialize the map
+  const map = L.map('map').setView([origin.latitude, origin.longitude], 17);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
+
+  trees.forEach(tree => {
+    L.marker([tree.latitude, tree.longitude]).addTo(map)
+      .bindPopup(`
+        <h2 class="is-size-4 has-text-weight-bold">${tree.common_name}</h2>
+        <p class="mb-0">This tree has a diameter of ${tree.diameter}cm.</p>
+        <hr class="my-2">
+        <b>Family: </b>${tree.family_link}<br>
+        <b>Genus: </b>${tree.genus_link}<br>
+        <b>Species: </b>${tree.species_link}</p>
+      `);
+  });
+})();
 </script>
