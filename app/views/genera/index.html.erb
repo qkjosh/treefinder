@@ -1,6 +1,6 @@
 <section class="section">
   <div class="container">
-    <p class="title">All Tree Species</p>
+    <p class="title">All Genera</p>
   </div>
 </section>
 <section class="section">
@@ -8,8 +8,8 @@
     <div class="columns is-multiline is-centered">
       <div class="column">
         <ul>
-        <% @plants.each do |plant| %>
-          <li><%= link_to plant.common_name, plant, class:"has-text-success" %></li>
+        <% @genera.each do |genus| %>
+          <li><%= link_to genus.name, genus, class:"has-text-success" %></li>
         <% end %>
         </ul>
       </div>
